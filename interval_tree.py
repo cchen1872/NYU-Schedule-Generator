@@ -28,7 +28,7 @@ class IntervalTree:
                 tree.head = R
                 R.parent = None 
             else:
-                if R is R.parent.left:
+                if L is L.parent.left:
                     L.parent.left = R
                 else:
                     L.parent.right = R
