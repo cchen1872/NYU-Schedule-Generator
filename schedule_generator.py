@@ -1,4 +1,5 @@
-from findConstraints import findConstraints, CourseNode
+from findConstraints import findConstraints
+from interval_tree import TimeSlot
 from findScores import findScores
 from kv_max_heap import KVMaxHeap
 import copy
@@ -12,12 +13,17 @@ class ScheduleNode:
         self.score = score
 
 
+
+
 def getCourseList():
-    res = []
+    res = ["A", "B", "C"]
+    
     res.append(CourseNode("Comp Networking", [(datetime.datetime(2023, 1, 23, 17, 0, 0, 0), datetime.datetime(2023, 1, 23, 18, 20, 0, 0)), (datetime.datetime(2023, 1, 25, 17, 0, 0, 0), datetime.datetime(2023, 1, 25, 18, 20, 0, 0))], 3))
     res.append(CourseNode("Comp Networkin", [(datetime.datetime(2023, 1, 24, 17, 0, 0, 0), datetime.datetime(2023, 1, 24, 18, 20, 0, 0)), (datetime.datetime(2023, 1, 26, 17, 0, 0, 0), datetime.datetime(2023, 1, 26, 18, 20, 0, 0))], 3))
     res.append(CourseNode("Comp Networkin", [(datetime.datetime(2023, 1, 24, 17, 0, 0, 0), datetime.datetime(2023, 1, 24, 18, 20, 0, 0)), (datetime.datetime(2023, 1, 26, 17, 0, 0, 0), datetime.datetime(2023, 1, 26, 18, 20, 0, 0))], 3))
     return res
+
+
 def main():
     ##GRAB COURSES FROM DATABASE
     ##MUST CHANGE

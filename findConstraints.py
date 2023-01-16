@@ -1,17 +1,5 @@
 from interval_tree import IntervalTree, TimeSlot
 
-class CourseNode:
-    def __init__(self, name, time_bounds, credits, constraints = None, score = None):
-        self.name = name
-        # print(type(time_bounds[0]))
-        self.times = [TimeSlot(start, end) for start, end in time_bounds]
-        self.credits = credits
-        if constraints is None:
-            self.constraints = set()
-        else:
-            self.constraints = constraints
-        self.score = score
-
 def sortKey(element):
     return element.credits + min(0.001 * len(element.times), 0.999)
 

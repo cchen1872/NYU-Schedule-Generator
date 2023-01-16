@@ -150,10 +150,8 @@ class IntervalTree:
         
 
                 
-    def __init__(self, goal = None):
+    def __init__(self):
         self.head = None #RedBlackNode
-        self.goal = goal
-        self.score = 1
 
     def add(self, start, end):
         if start >= end:
@@ -196,10 +194,7 @@ class IntervalTree:
         if new_node.parent is None: #If there was a time conflict in the Interval Tree
             return False
         else:
-            if self.goal is not None:
-                diff = (abs(start - self.goal) % datetime.timedelta(days = 1)) / datetime.timedelta(hours = 1)
-                if diff > 1:
-                    self.goal *= diff
+            
             curr = new_node.parent
             while curr is not None:
                 curr.latest = max(new_node.latest, curr.latest)
