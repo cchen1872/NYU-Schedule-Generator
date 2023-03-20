@@ -1,1 +1,7 @@
 # NYU-Schedule-Generator
+
+NYU Schedule Optimizer is a web application designed specifically for NYU students. It allows users to choose their course names from the NYU course registration system, provided by a third-party API, and input their ideal starting time, any unavailable times in their week, and the maximum amount of credits they can take for the semester. Based on this information, the program generates multiple optimal schedules using an algorithm that packs the classes as tightly around the user's ideal time as possible.
+
+The program evaluates each schedule based on its fitness, which is determined by the number of conflicts, the balance of classes throughout the week, and the user's preferences. The user can assign a higher priority to certain courses or indicate a desire for a certain amount of free time. The program then presents the user with a set of optimal schedules that satisfy their criteria in a user-friendly interface on a web page from which the user can then select the schedule that best fits their needs.
+
+This project provides a convenient and effective way for NYU students to create schedules that meet their needs and preferences, while also taking into account their credit limit. By automating the schedule creation process and optimizing the schedules based on user-defined parameters, this web application saves time and energy and helps students stay on top of their busy schedules.
