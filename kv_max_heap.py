@@ -39,7 +39,7 @@ class KVMaxHeap:
     def isEmpty(self):
         return len(self.arr) == 1
 
-    def len(self):
+    def __len__(self):
         return len(self.arr) - 1
 
     def getMaxKey(self):

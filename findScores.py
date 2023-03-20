@@ -3,7 +3,7 @@ import datetime
 def findCourseScore(course):
     score = 1
     for section in course.times:
-        curr_gap = (section.start - datetime.datetime(1,1,1,12)) % datetime.timedelta(days=1)
+        curr_gap = (section[0] - datetime.datetime(1,1,1,12,tzinfo=datetime.timezone.utc)) % datetime.timedelta(days=1)
         if curr_gap > datetime.timedelta(minutes=30):
             score /= (curr_gap / datetime.timedelta(minutes=30))
     return score

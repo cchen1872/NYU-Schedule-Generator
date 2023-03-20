@@ -167,9 +167,10 @@ class IntervalTree:
         curr = self.head
         loop = True
         while curr is not None and loop:
+            print(curr)
             loop = False
-            if (start < curr.ts.start and end > curr.ts.start) \
-                or (end > curr.ts.end and start < curr.ts.end): 
+            if (start <= curr.ts.start and end >= curr.ts.start) \
+                or (end >= curr.ts.end and start <= curr.ts.end): 
 
                 break
                 
@@ -265,6 +266,8 @@ class IntervalTree:
         elif node.left is not None:
             color = node.left.replace(node, self)
             return color, node.left, True
+        else:
+            print("LEAF")
 
     def redBlackJustify(self, color, parent, dir):
         sibling = None
@@ -286,7 +289,7 @@ class IntervalTree:
                     close = sibling.right
                     far = sibling.left
 
-        print(parent)
+        # print(parent)
 
         if color == RED:
             if node is not None:
@@ -329,7 +332,7 @@ class IntervalTree:
             parent.color = RED
             sibling.color = BLACK
             self.redBlackJustify(color, parent, dir)
-        elif parent is not None:
+        elif parent is not None and sibling is not None:
             sibling.color = RED
 
             dir = parent.parent is not None and parent is parent.parent.left
@@ -342,9 +345,10 @@ class IntervalTree:
 
     def remove(self, start):
         target = self.find(start)
-        self.correctLatest(target)
+        # self.correctLatest(target)
         tup = self.bstDelete(target)
         if tup is not None:
+            print(tup)
             color, parent, dir = tup
             self.redBlackJustify(color, parent, dir) 
         elif target is not None:
@@ -356,7 +360,7 @@ class IntervalTree:
                 else:
                     dir = False
                     parent.right = None
-                self.redBlackJustify(target.color, parent, dir)
+                self.redBlackJustify(RED, parent, dir)
             else:
                 self.head = None
         return target
@@ -370,8 +374,10 @@ class IntervalTree:
             if node.right is not None:
                 print('R')
                 display(node.right)
+            print("UP")
         if self.head is not None:
             display(self.head)
+            print("__________________")
 
 # tree = IntervalTree()
 # tree.add(16,17)
